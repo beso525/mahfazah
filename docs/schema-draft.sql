@@ -4,9 +4,8 @@ DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS accounts;
 DROP TABLE IF EXISTS transaction_status;
 
-
 CREATE TYPE entry_type AS ENUM ('DEBIT', 'CREDIT');
-CREATE TYPE transaction_status AS ENUM ('PENDING, SUCCEEDED, FAILED');
+CREATE TYPE transaction_status AS ENUM ('PENDING, SUCCESS, FAILED');
 
 CREATE TABLE accounts (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -21,16 +20,17 @@ CREATE TABLE accounts (
 CREATE TABLE transactions (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   description TEXT NULL,
+  status transaction_status NOT NULL DEFAULT 'PENDING',
+  reference_id VARCHAR(100) UNIQUE NULL
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   completed_at TIMESTAMPTZ NULL,
-  reference_id VARCHAR(100) UNIQUE NULL
 );
 
 CREATE TABLE ledger_entries (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   transaction_id UUID NOT NULL REFERENCES transactions(id),
   account_id UUID NOT NULL REFERENCES accounts(id),
-  is_debit BOOLEAN DEFAULT TRUE,
+  type
   amount_minor BIGINT NOT NULL CHECK (amount_minor > 0),
   currency VARCHAR(3) NOT NULL,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
