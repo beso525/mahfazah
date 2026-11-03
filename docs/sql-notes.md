@@ -1,0 +1,2 @@
+### What if the currency entry is not in EGP? 
+- It would get accepted, but it should get rejected. Could try a composite foreign key to ensure that both the currency column in accounts and transactions match. If it's an international transaction, could be a different process where it converts the currency to the local currency
