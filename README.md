@@ -6,6 +6,6 @@ A wallet and ledger service similar to fawry or instapay to create digital walle
 ##  Technologies Used
 - Java / Spring Boot
 - Angular
-- PostgresSQL / SQL
+- PostgreSQL / SQL
 - Docker and Docker Compose
 
