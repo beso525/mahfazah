@@ -33,3 +33,5 @@ CREATE TABLE ledger_entries (
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   FOREIGN KEY (account_id, currency) REFERENCES accounts(id, currency)
 );
+CREATE INDEX idx_ledger_entries_account_id ON ledger_entries(account_id);
+CREATE INDEX idx_ledger_entries_transaction_id ON ledger_entries(transaction_id);
