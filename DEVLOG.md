@@ -1,4 +1,4 @@
-## Week 1 (11 October, 2026)
+## Week 1
 ### Day 1
 - Set up docker with postgresql
 - Connected using psql

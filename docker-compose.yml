@@ -1,12 +1,14 @@
 services:
   postgres:
+    volumes:
+      - pgdata:/var/lib/postgresql/data
     container_name: postgres-db
-    image: postgres
+    image: postgres:16
     restart: always
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: test_db
+      POSTGRES_DB: mahfazah
     ports:
       - "${USER_PORT}:5432"
 
@@ -19,3 +21,5 @@ services:
       PGADMIN_DEFAULT_PASSWORD: ${ADMINDB_PASSWORD}
     ports:
       - "${ADMIN_PORT}:80"
+volumes:
+  pgdata:
