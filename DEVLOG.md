@@ -16,3 +16,5 @@ Paused after day 2.
 - Fixed the schema draft to have better relations between them.
 - Added a .env.example file for testing.
 - Added a volume to the docker-compose file
+
+### Day 4 (Nov 5)
