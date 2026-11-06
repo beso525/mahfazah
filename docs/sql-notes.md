@@ -15,3 +15,7 @@
 
 ### Why do NULL values slip past UNIQUE keyword?
 - UNIQUE only compares real values, if an id is NULL it passes automatically since 2 NULL values don't equal each other.
+
+### What is ACID?
+- ACID stands for atomicity, consistency, isolation, and durability.
+- 
